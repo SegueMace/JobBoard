@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1 class="title">Dashboard</h1>
+
+    {% if userprofile.is_employer %}
+        <h2 class="subtitle">Jobs</h2>
+
+        <a href="{% url 'add_job' %}" class="site-button"><i class="fa "></i> Add job</a>
+
+        <h5 class="widget-title font-weight-700 text-uppercase  p-t80">Your Jobs</h5>
+        <ul class="post-job-bx">
+            {% for job in request.user.jobs.all %}
+        
+            <li>
+                <a href="{% url 'view_dashboard_job' job.id%}">
+                    <div class="d-flex m-b30">
+                        <div class="job-post-company">
+                            <span><img src="{% static 'images/logo/icon1.png' %}"/></span>
+                        </div>
+                        <div class="job-post-info">
+                            <h4>{{job.title}}</h4>
+                            <ul>
+                                <li><i class="fa fa-map-marker"></i>{{job.company_adress}}</li>
+                                <li><i class="fa fa-bookmark-o"></i>{{job.company_contrat}}</li>
+                                <li><i class="fa fa-clock-o"></i> {{job.created_at}}</li>
+                                <li><i class="fa fa-clock-o"></i>  {{job.short_description}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="job-time mr-auto">
+                            <span>{{ job.company_contrat }}</span>
+                        </div>
+                        <div class="salary-bx">
+                            <span>{{job.company_salary}} $</span>
+                        </div>
+                    </div>
+                </a>   
+            </li> 
+            {% empty %}
+            <p> You don't have any job yet...</p>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <h2 class="subtitle">Applications</h2>
+    {% for application in request.user.applications.all %}
+    <div class="application">
+        <a href="{% url 'view_application' application.id%}">{{application.job.title}}</a>
+    </div>
+    {% empty %}
+    <p> You haven't applied for  any application yet...</p>
+    {% endfor %}
+    {% endif %}
+{% endblock content %}
+
+
+ 

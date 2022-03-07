@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1 class="title">View job - {{jobid.title}}</h1>
+
+    <div class="is-size-4">{{jobid.short_description}}</div>
+    <P>{{jobid.long_description}}</p>
+
+    <b>Company name:</b>{{jobid.company_name}}<br>
+    {% if jobid.company_adress%}<b>Company adress:</b>{{jobid.company_adress}}<br>{% endif %}
+    {% if jobid.company_zipcode%}<b>Company zipcode:</b>{{jobid.company_zipcode}}<br>{%endif%}
+    {%if jobid.company_place%}<b>Company place:</b>{{jobid.company_place}}<br>{%endif%}
+    <b>Company size:</b>{{jobid.get_company_size_display}}<br>
+    <b>Company contrat:</b>{{jobid.get_company_contrat_display}}<br>
+    <b>Company salary:</b>{{jobid.get_company_salary_display}}<br>
+
+    {% for application in jobid.applications.all %}
+    <a href="{% url 'view_application' application.id%}">{{application.created_by.username}}</a>
+    {% endfor %}
+    
+
+  
+
+    
+{%endblock content%}
+
+
