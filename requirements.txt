@@ -18,7 +18,6 @@ charset-normalizer==2.0.7
 clarifai==2.6.2
 Click==7.0
 colorama==0.4.3
-command-not-found==0.3
 configparser==3.8.1
 cryptography==35.0.0
 cupshelpers==1.0
