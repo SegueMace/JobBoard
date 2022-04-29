@@ -1,7 +1,20 @@
 {% extends 'core/base.html' %}
 {% load static%}
 
-
+{% block extra-nav %}
+					
+<!-- extra nav -->
+<div class="extra-nav">
+	<div class="extra-cell">
+		{% if request.user.is_authenticated %}
+		<a href="{% url 'dashboard' %}" class="site-button"><i class="fa fa-user"></i> Dashboard</a>
+		<a href="{% url 'logout' %}" class="site-button"><i class="fa fa-lock"></i> logout</a>
+		{% else %}
+		<a href="{% url 'login' %}" class="site-button"><i class="fa fa-lock"></i> login</a>
+		{% endif %}
+	</div>
+</div>
+{% endblock extra-nav %}
 
 {% block content %}
     <div class="page-content bg-white">

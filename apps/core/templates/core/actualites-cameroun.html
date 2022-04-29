@@ -29,7 +29,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-9 col-lg-8">
-							<h5 class="widget-title font-weight-700 text-uppercase">Emplois Cameroun</h5>
+							<h5 class="widget-title font-weight-700 text-uppercase">Actualite Cameroun</h5>
 							<ul class="post-job-bx">
 								{% for post in posts %}
 								<li>
@@ -39,11 +39,8 @@
 												<span><img src="{% static 'images/logo/icon1.png' %}"/></span>
 											</div>
 											<div class="job-post-info">
-												<h4>{{ post.metier }}</h4>
-												<ul>
-													<li><i class="fa fa-map-marker"></i>{{ post.description }}</li>
-													
-												</ul>
+												<h4>{{ post.description }}</h4>
+												
 											</div>
 										</div>
 										<div class="d-flex">

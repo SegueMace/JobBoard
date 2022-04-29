@@ -1,3 +1,4 @@
+import re
 from bs4 import BeautifulSoup
 import requests
 
@@ -7,24 +8,33 @@ entreprises = []
 descriptions = []
 regions = []
 liens =[]
+websites = []
+images = []
 
-def elements():
+class elements:
 
     documents = requests.get("https://www.emploi.cm/recherche-jobs-cameroun/").text
     soup = BeautifulSoup(documents, 'lxml')
 
     titles = soup.find_all('h5')
 
-    for title in titles:
-        metiers.append(title.text)
+    def metier(self):
+        for title in self.titles:
+            metiers.append(title.text)
+        return metiers
 
 
-
+    def sites(self):
+         for title in self.titles:
+            websites.append("emploi.cm")
+         return websites
+        
     #print(documents)
 
 
     datas = soup.find_all('p', class_='job-recruiter')
 
+    
     for data in datas:
         dates.append((data.text).split('|')[0])
 
@@ -35,8 +45,10 @@ def elements():
 
     descs = soup.find_all('div', class_='search-description')
 
-    for desc in descs:
-        descriptions.append(desc.text)
+    def description(self):
+        for desc in self.descs:
+            descriptions.append(desc.text)
+        return descriptions
 
     regs = soup.find_all('p', attrs={'class': None})
 
@@ -44,14 +56,16 @@ def elements():
         regions.append(reg.text)
 
 
-    a = soup.find_all('div', class_='job-description-wrapper')
+    a = soup.find_all('div', class_='job-description-wrapper') 
+  
 
-    for i in a:
-        liens.append(i.get('data-href'))
+    def lien(self):
+        for i in self.a:
+            liens.append(i.get('data-href'))
+        return liens
 
 
-
-
+   
     #for i in range(len(metiers)):
     #   print(metiers[i])
     #  print(dates[i])
@@ -61,9 +75,8 @@ def elements():
         #print(liens[i]) 
 
 
+
     #Fin de scraping pour emploi.cm
-    for i in range(len(liens)):
-      print(liens[i])
+    def taille(self):
+        return len(self.lien())
 
-
-elements()
