@@ -15,7 +15,6 @@ distlib==0.3.4
 dj-database-url==0.5.0
 Django==4.0.4
 django-heroku==0.3.1
-feedparser==5.2.1
 feedreader==0.3.1
 filelock==3.6.0
 html5lib==1.1
