@@ -15,6 +15,7 @@ from actualites import Base
 from blogs import Content
 from scraping4 import Cote
 from actualites1 import ActuCote
+from actu import get_actu, top_news
 
 
 
@@ -77,8 +78,7 @@ def  cote(request):
 def actualitescameroun(request):
 
  
-    ele = Base()
-    values = ele.datas()
+    values = get_actu('actualité+cameroun')
 
     paginator = Paginator(values, 10) # 3 posts in each page
     page = request.GET.get('page')
@@ -101,8 +101,7 @@ def actualitescameroun(request):
 def actualitescoteivoire(request):
 
  
-    ele = ActuCote()
-    values = ele.datas()
+    values = get_actu('actualite+cote+d+ivoire')
 
     paginator = Paginator(values, 10) # 3 posts in each page
     page = request.GET.get('page')
