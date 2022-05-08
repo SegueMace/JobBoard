@@ -15,7 +15,6 @@ from actualites import Base
 from blogs import Content
 from scraping4 import Cote
 from actualites1 import ActuCote
-from actu import get_actu, top_news
 
 
 

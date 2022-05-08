@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views
 
-from apps.core.views import frontpage, signup , aggregator, actualitescameroun, blogs, cote,actualitescoteivoire
+from apps.core.views import frontpage, signup , aggregator, actualitescameroun, blogs, cote
 #aggregation
 
 
