@@ -11,11 +11,11 @@ r.html.render(sleep=1, scrolldown=5)
 
 articles = r.html.find('article')
 
-print(articles)
+#print(articles)
 
 for item in articles:
     newsitem = item.find('h3', first=True)
     title = newsitem.text
     link = newsitem.absolute_links
-    print(title, link)
+    #print(title, link)
 

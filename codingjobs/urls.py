@@ -29,7 +29,6 @@ urlpatterns = [
     path('emploi-cote-divoire/', cote, name='emploi-cote'),
 
     path('actualites-cameroun/', actualitescameroun, name='actualites-cameroun'),
-    path('actualites-cote-ivoire/', actualitescoteivoire, name='actualites-coteivoire'),
 
     path('blogs/', blogs, name='blogs'),
 

@@ -41,6 +41,22 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution/revolution/css/settings.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution/revolution/css/navigation.css' %}">
 	<!-- Revolution Navigation Style -->
+	<!-- Matomo -->
+<script>
+	var _paq = window._paq = window._paq || [];
+	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+	  var u="https://opportunites.matomo.cloud/";
+	  _paq.push(['setTrackerUrl', u+'matomo.php']);
+	  _paq.push(['setSiteId', '1']);
+	  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	  g.async=true; g.src='//cdn.matomo.cloud/opportunites.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+	})();
+  </script>
+  <!-- End Matomo Code -->
+  
 </head>
 <body id="bg">
 
@@ -95,7 +111,6 @@
 								<a href="#">Emplois <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li><a href="{% url 'emploi-cameroun' %}" class="dez-page">Emplois cameroun</a></li>
-									<li><a href="{% url 'emploi-cote' %}" class="dez-page">Emplois Cote d'ivoire</a></li>
 									<li><a href="error-404.html" class="dez-page">Emplois Congo</a></li>
 									
 									
